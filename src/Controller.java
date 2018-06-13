@@ -1,5 +1,3 @@
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -28,6 +26,8 @@ public class Controller {
     private Time time;
 
     public GraphicsContext gc;
+    private int newBands;
+    private boolean addNewBands = false;
 
     public void initialize() {
         draw = new Draw();
@@ -39,7 +39,7 @@ public class Controller {
         Globals.PlaybackSlider = PlaybackSlider;
         Globals.PlayedText = PlayedText;
         Globals.DurationText = DurationText;
-    };
+    }
 
     public void OpenButtonAction() {
         File fileListOld = fileList;
@@ -102,6 +102,38 @@ public class Controller {
             });
             time.timeCalc(player);
         }
+    }
+
+    public void ApplyButtonAction() {
+        if (!addNewBands && newBands != player.getAudioSpectrumNumBands()) {
+            player.stop();
+            PlayButton.setText("Play");
+            player.setAudioSpectrumNumBands(newBands);
+        }/* else {
+            player.pause();
+            PlayButton.setText("Play");
+        }*/
+    }
+    public void BandButtonAction2048() {
+        newBands = 2048;
+    }
+    public void BandButtonAction1024() {
+        newBands = 1024;
+    }
+    public void BandButtonAction512() {
+        newBands = 512;
+    }
+    public void BandButtonAction256() {
+        newBands = 256;
+    }
+    public void BandButtonAction128() {
+        newBands = 128;
+    }
+    public void BandButtonAction64() {
+        newBands = 64;
+    }
+    public void BandButtonAction32() {
+        newBands = 32;
     }
 
     private static void configureFileChooser(

@@ -6,31 +6,64 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
-   <children>
-      <SplitPane dividerPositions="0.8607242339832869" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: black;">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <tabs>
+    <Tab text="Spectrograph">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Canvas fx:id="canvas" height="615.0" width="1278.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: Dimgray;">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <SplitPane dividerPositions="0.8607242339832869" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: black;">
+                                 <children>
+                                    <Canvas fx:id="canvas" height="615.0" width="1278.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: Dimgray;">
+                                 <children>
+                                    <Button fx:id="OpenButton" layoutX="1218.0" layoutY="5.0" mnemonicParsing="false" onAction="#OpenButtonAction" text="Open" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="RepeatButton" layoutX="1155.0" layoutY="5.0" mnemonicParsing="false" onAction="#RepeatButtonAction" text="Repeat" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="5.0" />
+                                    <Button fx:id="PlayButton" layoutX="615.0" layoutY="5.0" mnemonicParsing="false" onAction="#PlayButtonAction" prefHeight="50.0" prefWidth="50.0" text="Play" AnchorPane.leftAnchor="615.0" AnchorPane.rightAnchor="613.0" AnchorPane.topAnchor="5.0" />
+                                    <Slider fx:id="PlaybackSlider" layoutX="48.0" layoutY="69.0" prefHeight="14.0" prefWidth="1179.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="69.0" />
+                                    <Label fx:id="PlayingLabel" layoutX="14.0" layoutY="9.0" prefHeight="27.0" prefWidth="320.0" textFill="WHITE" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="9.0">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="PlayedText" layoutX="14.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" wrappingWidth="29.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="67.05078125" />
+                                    <Text fx:id="DurationText" layoutX="1235.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" wrappingWidth="29.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="68.0" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Settings">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="OpenButton" layoutX="1218.0" layoutY="5.0" mnemonicParsing="false" onAction="#OpenButtonAction" text="Open" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="5.0" />
-                  <Button fx:id="RepeatButton" layoutX="1155.0" layoutY="5.0" mnemonicParsing="false" onAction="#RepeatButtonAction" text="Repeat" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="5.0" />
-                  <Button fx:id="PlayButton" layoutX="615.0" layoutY="5.0" mnemonicParsing="false" onAction="#PlayButtonAction" prefHeight="50.0" prefWidth="50.0" text="Play" AnchorPane.leftAnchor="615.0" AnchorPane.rightAnchor="613.0" AnchorPane.topAnchor="5.0" />
-                  <Slider fx:id="PlaybackSlider" layoutX="335.0" layoutY="69.0" prefHeight="14.0" prefWidth="287.0" AnchorPane.leftAnchor="335.0" AnchorPane.rightAnchor="335.0" AnchorPane.topAnchor="69.0" />
-                  <Label fx:id="PlayingLabel" layoutX="14.0" layoutY="9.0" prefHeight="27.0" prefWidth="320.0" textFill="WHITE" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="9.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="PlayedText" layoutX="306.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" wrappingWidth="29.0" AnchorPane.leftAnchor="306.0" AnchorPane.topAnchor="68.0" />
-                  <Text fx:id="DurationText" layoutX="943.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" wrappingWidth="29.0" AnchorPane.rightAnchor="306.0" AnchorPane.topAnchor="68.0" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
-</AnchorPane>
+                  <Button layoutX="16.0" layoutY="630.0" mnemonicParsing="false" onAction="#ApplyButtonAction" prefHeight="77.0" prefWidth="1242.0" text="Apply" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <VBox layoutX="20.0" layoutY="180.0" prefHeight="431.0" prefWidth="148.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="180.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#BandButtonAction2048" prefHeight="62.0" prefWidth="150.0" text="2048" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#BandButtonAction1024" prefHeight="62.0" prefWidth="150.0" text="1024" />
+                        <Button layoutX="10.0" layoutY="96.0" mnemonicParsing="false" onAction="#BandButtonAction512" prefHeight="62.0" prefWidth="150.0" text="512" />
+                        <Button layoutX="10.0" layoutY="182.0" mnemonicParsing="false" onAction="#BandButtonAction256" prefHeight="62.0" prefWidth="150.0" text="256" />
+                        <Button layoutX="10.0" layoutY="268.0" mnemonicParsing="false" onAction="#BandButtonAction128" prefHeight="62.0" prefWidth="150.0" text="128" />
+                        <Button layoutX="10.0" layoutY="254.0" mnemonicParsing="false" onAction="#BandButtonAction64" prefHeight="62.0" prefWidth="150.0" text="64" />
+                        <Button layoutX="10.0" layoutY="315.0" mnemonicParsing="false" onAction="#BandButtonAction32" prefHeight="62.0" prefWidth="150.0" text="32" />
+                     </children>
+                  </VBox>
+                  <Text fx:id="BandsText" layoutX="37.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bands: " textAlignment="CENTER" wrappingWidth="114.13671875" />
+                  <Slider layoutX="181.0" layoutY="597.0" majorTickUnit="10.0" max="60.0" min="20.0" prefHeight="14.0" prefWidth="368.0" showTickLabels="true" showTickMarks="true" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="180.0" />
+                  <Text layoutX="307.0" layoutY="567.0" strokeType="OUTSIDE" strokeWidth="0.0" text="width loop" textAlignment="CENTER" wrappingWidth="115.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="307.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

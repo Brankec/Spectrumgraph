@@ -10,12 +10,12 @@ public class Time {
 
     public void timeCalc(MediaPlayer player) {//This is where the controls for the playback slider are and where it shows the duration
         //add listeners
-        /*Globals.PlaybackSlider.valueProperty().addListener(new InvalidationListener() { //listener for video jump using slider
+        Globals.PlaybackSlider.valueProperty().addListener(new InvalidationListener() { //listener for video jump using slider
             public void invalidated(Observable arg0) {
                 if (Globals.PlaybackSlider.isPressed())
                     player.seek(player.getMedia().getDuration().multiply(Globals.PlaybackSlider.getValue() / 100));
             }
-        });*/
+        });
 
         player.currentTimeProperty().addListener(new InvalidationListener() { //updating video slider according to time
             public void invalidated(Observable observable) {
